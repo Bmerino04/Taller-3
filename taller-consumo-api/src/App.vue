@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>Lista de países</h1>
-    <ul>
+    <button @click="toggleLista">{{ mostrarLista ? 'Ocultar' : 'Mostrar' }} paises</button>
+    <ul v-if="mostrarLista">
       <li v-for="(dato, index) in datos" :key="index">
         <h2>{{ dato.country }} ({{ dato.code }})</h2>
         <div v-for="(poblacion, i) in dato.populationCounts" :key="i">
@@ -16,6 +17,11 @@
 import { ref, onMounted } from 'vue'
 
 const datos = ref([])
+const mostrarLista = ref(false)
+
+const toggleLista = () => {
+  mostrarLista.value = !mostrarLista.value
+}
 
 onMounted(async () => {
   try {
