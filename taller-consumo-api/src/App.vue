@@ -15,7 +15,11 @@
     <button @click="toggleAnimeLista">{{ mostrarAnimeLista ? 'Ocultar' : 'Mostrar' }} animes</button>
     <ul v-if="mostrarAnimeLista">
       <li v-for="(anime, index) in animes" :key="index">
-        <h2>{{ anime.entry[0].title }} ({{ anime.entry[1]?.title || 'No disponible' }})</h2>
+        <div>
+          <h2>{{ anime.entry[0].title }} & {{ anime.entry[1]?.title || 'No disponible' }}</h2>
+          <p>{{ anime.content }}</p>
+          <p>Recomendado por: {{ anime.user.username }}</p>
+        </div>
       </li>
     </ul>
   </div>
