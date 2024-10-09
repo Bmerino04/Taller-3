@@ -18,6 +18,8 @@
         <div>
           <h2>{{ anime.entry[0].title }} & {{ anime.entry[1]?.title || 'No disponible' }}</h2>
           <p>{{ anime.content }}</p>
+          <img :src="anime.entry[0].images.jpg.image_url" alt="Imagen Anime 1" />
+          <img v-if="anime.entry[1]" :src="anime.entry[1].images.jpg.image_url" alt="Imagen Anime 2" />
           <p>Recomendado por: {{ anime.user.username }}</p>
         </div>
       </li>
